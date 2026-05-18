@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "@/assets/logo.png"; // <-- Importação da logo adicionada aqui
+import logo from "@/assets/logo.webp"; // <-- Importação da logo adicionada aqui
 
 const links = [
   { href: "#sobre", label: "Sobre" },
