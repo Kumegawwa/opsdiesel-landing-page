@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import logo from "@/assets/logo.png"; // <-- Importação da logo adicionada aqui
 
 const links = [
   { href: "#sobre", label: "Sobre" },
@@ -29,12 +30,12 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="#top" className="flex items-center gap-2">
-          <span className="h-2.5 w-2.5 rounded-full bg-primary lime-glow" />
-          <span className="font-display text-xl font-bold tracking-widest">
-            OPS<span className="text-primary">.</span>DIESEL
-          </span>
+        
+        {/* Substituição do texto pela Logo em Imagem */}
+        <a href="#top" className="flex items-center gap-2 transition hover:opacity-80">
+          <img src={logo} alt="Logo Ops Diesel" className="h-10 w-auto object-contain" />
         </a>
+
         <nav className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
             <a
@@ -57,7 +58,6 @@ export function Navbar() {
             WhatsApp
           </a>
           
-          {/* Ícone do WhatsApp Onipresente no Mobile */}
           <a
             href="https://wa.me/5541991549500"
             target="_blank"
