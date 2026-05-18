@@ -12,7 +12,7 @@ import gTools from "@/assets/g-tools.jpg";
 import gTurbo from "@/assets/g-turbo.jpg";
 import founder from "@/assets/founder.jpg";
 import logo from "@/assets/logo.webp";
-import favicon from "@/assets/favicon.svg"; // <-- Importação do seu Favicon SVG
+import favicon from "@/assets/favicon.svg"; 
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -22,7 +22,6 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "OPS DIESEL: autoridade em mecânica diesel pesada, Dodge RAM, injeção Common Rail, remap e diagnóstico avançado em Curitiba. Mais de 14 anos de experiência." },
     ],
     links: [
-      // Configuração correta para ler o SVG como Favicon
       { rel: "icon", href: favicon, type: "image/svg+xml" } 
     ],
     scripts: [
@@ -375,7 +374,7 @@ function Depoimentos() {
   );
 }
 
-/* ---------------- LOCALIZAÇÃO ---------------- */
+/* ---------------- LOCALIZAÇÃO (Google Maps Fix) ---------------- */
 function Localizacao() {
   const endereco = "Rua Alexandre Marcoski, 308 - São Braz, Curitiba - PR, 82015-570";
   return (
@@ -392,7 +391,7 @@ function Localizacao() {
             <Info label="Telefone" value="+55 41 3272-6940" />
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a target="_blank" rel="noopener noreferrer" href={`http://googleusercontent.com/maps.google.com/8{encodeURIComponent(endereco)}`} className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:brightness-110">Google Maps</a>
+            <a target="_blank" rel="noopener noreferrer" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(endereco)}`} className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:brightness-110">Google Maps</a>
             <a target="_blank" rel="noopener noreferrer" href={`https://waze.com/ul?q=${encodeURIComponent(endereco)}&navigate=yes`} className="inline-flex items-center gap-2 rounded-md border border-border bg-surface px-5 py-3 text-sm font-semibold uppercase tracking-wider hover:border-primary/60 hover:text-primary">Waze</a>
           </div>
         </Reveal>
@@ -400,7 +399,7 @@ function Localizacao() {
           <div className="relative h-full min-h-[400px] rounded-lg overflow-hidden border border-border">
             <iframe
               title="Mapa OPS DIESEL"
-              src={`http://googleusercontent.com/maps.google.com/9{encodeURIComponent(endereco)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(endereco)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
               className="absolute inset-0 h-full w-full"
               style={{ filter: "invert(90%) hue-rotate(180deg) brightness(85%) contrast(110%)" }}
               loading="lazy"
@@ -502,7 +501,7 @@ function Field({ name, label, required, placeholder }: { name: string; label: st
   );
 }
 
-/* ---------------- FOOTER ---------------- */
+/* ---------------- FOOTER (Com Assinatura) ---------------- */
 function Footer() {
   return (
     <footer className="relative border-t border-border bg-surface/60">
@@ -543,8 +542,26 @@ function Footer() {
       </div>
       <div className="border-t border-border">
         <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
-          <div>© {new Date().getFullYear()} Ops Diesel Acessórios Automotivos Ltda · CNPJ 46.859.630/0001-17</div>
-          <div className="flex gap-5">
+          
+          <div className="flex flex-col gap-1">
+            <div>© {new Date().getFullYear()} Ops Diesel Acessórios Automotivos Ltda · CNPJ 46.859.630/0001-17</div>
+            {/* Assinatura do Desenvolvedor */}
+            <div className="text-[11px] font-sans tracking-wider text-muted-foreground flex items-center gap-1.5 mt-1 select-none">
+              <span>Designed by</span>
+              <a 
+                href="https://www.linkedin.com/in/lucas-kumegawa/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group inline-flex items-center text-muted-foreground transition-all duration-300 hover:text-foreground"
+              >
+                <span className="font-oleo text-[16px] text-primary tracking-normal normal-case ml-1 transition-all duration-300 group-hover:scale-105 block origin-left">
+                  Kumegawa
+                </span>
+              </a>
+            </div> 
+          </div>
+
+          <div className="flex gap-5 mt-4 sm:mt-0">
             <a href="#" className="hover:text-primary">Política de Privacidade</a>
             <a href="#" className="hover:text-primary">LGPD</a>
           </div>
