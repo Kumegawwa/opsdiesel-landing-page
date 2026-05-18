@@ -74,14 +74,14 @@ function Hero() {
               href="https://wa.me/5541991549500"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-4 font-semibold uppercase tracking-wider text-primary-foreground transition lime-glow hover:brightness-110"
+              className="group inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-4 font-semibold uppercase tracking-wider text-primary-foreground transition lime-glow hover:brightness-110 text-center"
             >
-              Falar no WhatsApp
+              Falar Imediatamente com Especialista
               <svg className="h-4 w-4 transition group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
             </a>
             <a
               href="#contato"
-              className="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-surface/60 backdrop-blur px-6 py-4 font-semibold uppercase tracking-wider text-foreground hover:border-primary/60 hover:text-primary transition"
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-surface/60 backdrop-blur px-6 py-4 font-semibold uppercase tracking-wider text-foreground hover:border-primary/60 hover:text-primary transition text-center"
             >
               Solicitar Orçamento Técnico
             </a>
@@ -193,7 +193,12 @@ function Servicos() {
                 </div>
                 <h3 className="mt-5 font-display text-xl font-bold uppercase">{s.t}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
-                <a href="https://wa.me/5541991549500" className="mt-5 inline-flex items-center gap-1 text-xs uppercase tracking-wider text-primary opacity-0 group-hover:opacity-100 transition">
+                <a 
+                  href={`https://wa.me/5541991549500?text=${encodeURIComponent(`Olá, gostaria de saber o prazo e os detalhes para o serviço de ${s.t} para o meu veículo.`)}`} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex items-center gap-1 text-xs uppercase tracking-wider text-primary opacity-100 md:opacity-0 md:group-hover:opacity-100 transition"
+                >
                   Solicitar orçamento →
                 </a>
               </div>
@@ -278,14 +283,14 @@ function Diferenciais() {
   );
 }
 
-/* ---------------- GALERIA ---------------- */
+/* ---------------- GALERIA (SEO Otimizado) ---------------- */
 const gallery = [
-  { src: gEngine, alt: "Motor diesel Common Rail", span: "row-span-2" },
-  { src: gRam, alt: "Dodge RAM na oficina" },
-  { src: gScanner, alt: "Scanner de diagnóstico" },
-  { src: gTools, alt: "Bancada de ferramentas", span: "row-span-2" },
-  { src: gTruck, alt: "Caminhão linha pesada" },
-  { src: gTurbo, alt: "Turbina diesel" },
+  { src: gEngine, alt: "Mecânico especialista da Ops Diesel realizando manutenção em motor diesel Common Rail na oficina no bairro São Braz em Curitiba", span: "row-span-2" },
+  { src: gRam, alt: "Manutenção especializada e diagnóstico avançado em picape Dodge RAM na oficina Ops Diesel em Curitiba" },
+  { src: gScanner, alt: "Diagnóstico eletrônico avançado com scanner em caminhão linha pesada na Ops Diesel, Região Metropolitana de Curitiba" },
+  { src: gTools, alt: "Bancada de ferramentas e laboratório eletrônico de alta precisão para motores diesel na Ops Diesel, São Braz", span: "row-span-2" },
+  { src: gTruck, alt: "Manutenção preventiva e corretiva em frota de caminhão linha pesada na oficina mecânica em Curitiba" },
+  { src: gTurbo, alt: "Revisão e calibração de turbina diesel com alta performance na Ops Diesel Acessórios Automotivos" },
 ];
 
 function Galeria() {
@@ -308,9 +313,6 @@ function Galeria() {
               >
                 <img src={g.src} alt={g.alt} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-60 group-hover:opacity-30 transition" />
-                <div className="absolute bottom-4 left-4 text-xs uppercase tracking-wider text-foreground opacity-0 group-hover:opacity-100 transition">
-                  {g.alt}
-                </div>
               </button>
             </Reveal>
           ))}
@@ -384,7 +386,7 @@ function Localizacao() {
             <Info label="Telefone" value="+55 41 3272-6940" />
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a target="_blank" rel="noopener noreferrer" href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(endereco)}`} className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:brightness-110">Google Maps</a>
+            <a target="_blank" rel="noopener noreferrer" href={`https://www.google.com/maps/dir/?api=1&destination=$${encodeURIComponent(endereco)}`} className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:brightness-110">Google Maps</a>
             <a target="_blank" rel="noopener noreferrer" href={`https://waze.com/ul?q=${encodeURIComponent(endereco)}&navigate=yes`} className="inline-flex items-center gap-2 rounded-md border border-border bg-surface px-5 py-3 text-sm font-semibold uppercase tracking-wider hover:border-primary/60 hover:text-primary">Waze</a>
           </div>
         </Reveal>
@@ -392,8 +394,9 @@ function Localizacao() {
           <div className="relative h-full min-h-[400px] rounded-lg overflow-hidden border border-border">
             <iframe
               title="Mapa OPS DIESEL"
-              src={`https://www.google.com/maps?q=${encodeURIComponent(endereco)}&output=embed`}
-              className="absolute inset-0 h-full w-full grayscale contrast-125"
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(endereco)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+              className="absolute inset-0 h-full w-full"
+              style={{ filter: "invert(90%) hue-rotate(180deg) brightness(85%) contrast(110%)" }}
               loading="lazy"
             />
           </div>
