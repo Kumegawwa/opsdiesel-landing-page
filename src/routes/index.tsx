@@ -11,6 +11,7 @@ import gTruck from "@/assets/g-truck.jpg";
 import gTools from "@/assets/g-tools.jpg";
 import gTurbo from "@/assets/g-turbo.jpg";
 import founder from "@/assets/founder.jpg";
+import logo from "@/assets/logo.webp"; // <-- Importação da logo adicionada aqui
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -386,7 +387,7 @@ function Localizacao() {
             <Info label="Telefone" value="+55 41 3272-6940" />
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a target="_blank" rel="noopener noreferrer" href={`https://www.google.com/maps/dir/?api=1&destination=$${encodeURIComponent(endereco)}`} className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:brightness-110">Google Maps</a>
+            <a target="_blank" rel="noopener noreferrer" href={`http://googleusercontent.com/maps.google.com/4{encodeURIComponent(endereco)}`} className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:brightness-110">Google Maps</a>
             <a target="_blank" rel="noopener noreferrer" href={`https://waze.com/ul?q=${encodeURIComponent(endereco)}&navigate=yes`} className="inline-flex items-center gap-2 rounded-md border border-border bg-surface px-5 py-3 text-sm font-semibold uppercase tracking-wider hover:border-primary/60 hover:text-primary">Waze</a>
           </div>
         </Reveal>
@@ -394,7 +395,7 @@ function Localizacao() {
           <div className="relative h-full min-h-[400px] rounded-lg overflow-hidden border border-border">
             <iframe
               title="Mapa OPS DIESEL"
-              src={`https://maps.google.com/maps?q=${encodeURIComponent(endereco)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+              src={`http://googleusercontent.com/maps.google.com/5{encodeURIComponent(endereco)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
               className="absolute inset-0 h-full w-full"
               style={{ filter: "invert(90%) hue-rotate(180deg) brightness(85%) contrast(110%)" }}
               loading="lazy"
@@ -502,10 +503,12 @@ function Footer() {
     <footer className="relative border-t border-border bg-surface/60">
       <div className="mx-auto max-w-7xl px-6 py-16 grid lg:grid-cols-4 gap-10">
         <div className="lg:col-span-2">
+          
+          {/* Substituição do texto pela Logo em Imagem no Footer */}
           <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-primary lime-glow" />
-            <span className="font-display text-xl font-bold tracking-widest">OPS<span className="text-primary">.</span>DIESEL</span>
+            <img src={logo} alt="Logo Ops Diesel" className="h-10 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition duration-300" />
           </div>
+
           <p className="mt-4 text-sm text-muted-foreground max-w-md">
             Mecânica diesel premium e especialistas Dodge RAM em Curitiba/PR.
             Engenharia, precisão e performance há mais de 14 anos.
