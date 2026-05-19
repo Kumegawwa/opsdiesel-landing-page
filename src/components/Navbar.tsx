@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "@/assets/logo.webp"; // <-- Importação da logo adicionada aqui
+import logo from "@/assets/logo.webp";
 
 const links = [
   { href: "#sobre", label: "Sobre" },
@@ -31,7 +31,6 @@ export function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         
-        {/* Substituição do texto pela Logo em Imagem */}
         <a href="#top" className="flex items-center gap-2 transition hover:opacity-80">
           <img src={logo} alt="Logo Ops Diesel" className="h-10 w-auto object-contain" />
         </a>
@@ -50,7 +49,7 @@ export function Navbar() {
         
         <div className="flex items-center gap-4">
           <a
-            href="https://wa.me/5541991549500"
+            href="https://wa.me/5541995149500"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-semibold uppercase tracking-wider text-primary-foreground transition hover:brightness-110"
@@ -59,7 +58,7 @@ export function Navbar() {
           </a>
           
           <a
-            href="https://wa.me/5541991549500"
+            href="https://wa.me/5541995149500"
             target="_blank"
             rel="noopener noreferrer"
             className="md:hidden inline-flex items-center justify-center text-primary hover:text-primary/80 transition"

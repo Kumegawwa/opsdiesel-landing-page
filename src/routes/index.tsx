@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"; // <-- Importação do Modal adicionada aqui
+} from "@/components/ui/dialog"; 
 import hero from "@/assets/hero.jpg";
 import gEngine from "@/assets/g-engine.jpg";
 import gScanner from "@/assets/g-scanner.jpg";
@@ -83,7 +83,7 @@ function Hero() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <a
-              href="https://wa.me/5541991549500"
+              href="https://wa.me/5541995149500"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-4 font-semibold uppercase tracking-wider text-primary-foreground transition lime-glow hover:brightness-110 text-center"
@@ -206,7 +206,7 @@ function Servicos() {
                 <h3 className="mt-5 font-display text-xl font-bold uppercase">{s.t}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
                 <a 
-                  href={`https://wa.me/5541991549500?text=${encodeURIComponent(`Olá, gostaria de saber o prazo e os detalhes para o serviço de ${s.t} para o meu veículo.`)}`} 
+                  href={`https://wa.me/5541995149500?text=${encodeURIComponent(`Olá, gostaria de saber o prazo e os detalhes para o serviço de ${s.t} para o meu veículo.`)}`} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-5 inline-flex items-center gap-1 text-xs uppercase tracking-wider text-primary opacity-100 md:opacity-0 md:group-hover:opacity-100 transition"
@@ -381,7 +381,7 @@ function Depoimentos() {
   );
 }
 
-/* ---------------- LOCALIZAÇÃO (Com BUG da URL CORRIGIDO) ---------------- */
+/* ---------------- LOCALIZAÇÃO ---------------- */
 function Localizacao() {
   const endereco = "Rua Alexandre Marcoski, 308 - São Braz, Curitiba - PR, 82015-570";
   return (
@@ -394,7 +394,7 @@ function Localizacao() {
           <div className="mt-8 space-y-5">
             <Info label="Endereço" value="Rua Alexandre Marcoski, 308 — São Braz, Curitiba/PR · CEP 82015-570" />
             <Info label="Horário" value="Seg a Sex · 08h–18h · Sáb · 08h–12h" />
-            <Info label="WhatsApp" value="+55 41 99154-9500" />
+            <Info label="WhatsApp" value="+55 41 99514-9500" />
             <Info label="Telefone" value="+55 41 3272-6940" />
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -443,7 +443,7 @@ function Contato() {
     const msg = `Olá OPS DIESEL!%0A%0ANome: ${nome}%0AWhatsApp: ${wpp}%0AVeículo: ${veiculo} ${ano}%0AServiço: ${servico}%0AProblema: ${problema}`;
     setSending(true);
     setTimeout(() => {
-      window.open(`https://wa.me/5541991549500?text=${msg}`, "_blank");
+      window.open(`https://wa.me/5541995149500?text=${msg}`, "_blank");
       setSending(false);
       setSent(true);
     }, 600);
@@ -508,7 +508,7 @@ function Field({ name, label, required, placeholder }: { name: string; label: st
   );
 }
 
-/* ---------------- FOOTER (Com Modal Integrado) ---------------- */
+/* ---------------- FOOTER ---------------- */
 function Footer() {
   return (
     <footer className="relative border-t border-border bg-surface/60">
@@ -541,12 +541,11 @@ function Footer() {
             <li>São Braz · Curitiba/PR</li>
             <li>CEP 82015-570</li>
             <li><a href="tel:+554132726940" className="hover:text-primary">+55 41 3272-6940</a></li>
-            <li><a href="https://wa.me/5541991549500" className="hover:text-primary">+55 41 99154-9500</a></li>
+            <li><a href="https://wa.me/5541995149500" className="hover:text-primary">+55 41 99514-9500</a></li>
           </ul>
         </div>
       </div>
       
-      {/* BARRA INFERIOR - 3 COLUNAS */}
       <div className="border-t border-border">
         <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0 text-xs text-muted-foreground">
           
@@ -572,7 +571,6 @@ function Footer() {
           </div>
 
           <div className="flex-1 flex justify-center sm:justify-end gap-5 order-3 sm:order-3 w-full sm:w-auto mt-2 sm:mt-0">
-            {/* O Modal Mágico entra aqui substituindo as tags <a href="#"> */}
             <Dialog>
               <DialogTrigger asChild>
                 <button className="hover:text-primary cursor-pointer transition-colors text-left uppercase tracking-wider">

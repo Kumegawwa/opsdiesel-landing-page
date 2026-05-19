@@ -1,7 +1,7 @@
 export function FloatingWhatsApp() {
   return (
     <a
-      href="https://wa.me/5541991549500?text=Ol%C3%A1%20OPS%20DIESEL%2C%20gostaria%20de%20um%20or%C3%A7amento."
+      href="https://wa.me/5541995149500?text=Ol%C3%A1%20OPS%20DIESEL%2C%20gostaria%20de%20um%20or%C3%A7amento."
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
