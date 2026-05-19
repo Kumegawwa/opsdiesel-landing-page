@@ -3,6 +3,13 @@ import { useState, type FormEvent } from "react";
 import { Navbar } from "@/components/Navbar";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { Reveal } from "@/components/Reveal";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"; // <-- Importação do Modal adicionada aqui
 import hero from "@/assets/hero.jpg";
 import gEngine from "@/assets/g-engine.jpg";
 import gScanner from "@/assets/g-scanner.jpg";
@@ -374,7 +381,7 @@ function Depoimentos() {
   );
 }
 
-/* ---------------- LOCALIZAÇÃO ---------------- */
+/* ---------------- LOCALIZAÇÃO (Com BUG da URL CORRIGIDO) ---------------- */
 function Localizacao() {
   const endereco = "Rua Alexandre Marcoski, 308 - São Braz, Curitiba - PR, 82015-570";
   return (
@@ -501,7 +508,7 @@ function Field({ name, label, required, placeholder }: { name: string; label: st
   );
 }
 
-/* ---------------- FOOTER (Com Assinatura Perfeitamente Centralizada) ---------------- */
+/* ---------------- FOOTER (Com Modal Integrado) ---------------- */
 function Footer() {
   return (
     <footer className="relative border-t border-border bg-surface/60">
@@ -543,13 +550,11 @@ function Footer() {
       <div className="border-t border-border">
         <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0 text-xs text-muted-foreground">
           
-          {/* 1. Direitos Autorais (Esquerda no PC, Baixo no Mobile) */}
           <div className="flex-1 text-center sm:text-left order-2 sm:order-1 w-full sm:w-auto">
             © {new Date().getFullYear()} Ops Diesel Acessórios Automotivos Ltda<br className="sm:hidden" />
             <span className="hidden sm:inline"> · </span>CNPJ 46.859.630/0001-17
           </div>
 
-          {/* 2. Assinatura Exatamente no Centro (Centro no PC, Topo no Mobile) */}
           <div className="flex-1 flex justify-center order-1 sm:order-2 w-full sm:w-auto mb-2 sm:mb-0">
             <div className="text-[11px] font-sans tracking-wider text-muted-foreground flex items-center justify-center gap-1 select-none">
               <span>Designed by</span>
@@ -566,10 +571,48 @@ function Footer() {
             </div> 
           </div>
 
-          {/* 3. Links (Direita no PC, Fundo no Mobile) */}
           <div className="flex-1 flex justify-center sm:justify-end gap-5 order-3 sm:order-3 w-full sm:w-auto mt-2 sm:mt-0">
-            <a href="#" className="hover:text-primary">Política de Privacidade</a>
-            <a href="#" className="hover:text-primary">LGPD</a>
+            {/* O Modal Mágico entra aqui substituindo as tags <a href="#"> */}
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="hover:text-primary cursor-pointer transition-colors text-left uppercase tracking-wider">
+                  Política de Privacidade & LGPD
+                </button>
+              </DialogTrigger>
+              <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto bg-surface border-border text-foreground">
+                <DialogHeader>
+                  <DialogTitle className="font-display text-2xl uppercase tracking-wider text-primary">
+                    Política de Privacidade e Termos de Uso (LGPD)
+                  </DialogTitle>
+                </DialogHeader>
+                <div className="space-y-5 text-sm text-muted-foreground leading-relaxed mt-4">
+                  <p>
+                    A <strong>Ops Diesel Acessórios Automotivos Ltda. (CNPJ 46.859.630/0001-17)</strong>,
+                    tem o compromisso de respeitar a sua privacidade e garantir o sigilo de todas as informações que você nos fornece. Todos os dados cadastrados em nosso site são utilizados apenas para melhorar sua experiência e otimizar nosso atendimento.
+                  </p>
+                  
+                  <div>
+                    <h3 className="font-bold text-foreground uppercase tracking-wider text-xs mb-2">1. Coleta de Informações</h3>
+                    <p>Coletamos apenas informações fornecidas voluntariamente no formulário de contato (Nome, Veículo, Problema, e WhatsApp). Esses dados são recebidos exclusivamente para retornarmos o seu orçamento com máxima agilidade.</p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-foreground uppercase tracking-wider text-xs mb-2">2. Uso dos Dados</h3>
+                    <p>As informações cedidas não são transferidas, repassadas ou vendidas a terceiros em nenhuma hipótese. Utilizamos o WhatsApp como canal principal para envio do orçamento solicitado e acompanhamento de ordens de serviço técnico em nossa oficina.</p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-foreground uppercase tracking-wider text-xs mb-2">3. Seus Direitos (LGPD)</h3>
+                    <p>Conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem o direito de solicitar a exclusão de qualquer dado pessoal da nossa base de contatos. Para isso, basta solicitar diretamente através do nosso número de atendimento oficial no WhatsApp.</p>
+                  </div>
+
+                  <p className="pt-4 border-t border-border text-xs">
+                    Última atualização: {new Date().toLocaleString('pt-BR', { month: 'long', year: 'numeric' })}. <br/>
+                    São Braz, Curitiba - PR.
+                  </p>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
 
         </div>
