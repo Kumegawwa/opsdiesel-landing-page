@@ -225,7 +225,8 @@ function Servicos() {
 /* ---------------- MARCAS ---------------- */
 const brands = ["RAM", "Volvo", "Scania", "Mercedes-Benz", "MAN", "Iveco", "Ford", "Cummins", "MWM"];
 function Marcas() {
-  const loop = [...brands, ...brands];
+  // Aumentamos o loop para garantir que o carrossel nunca fique vazio
+  const loop = [...brands, ...brands, ...brands]; 
   return (
     <section id="marcas" className="relative py-24 border-y border-border overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 mb-10">
@@ -236,17 +237,19 @@ function Marcas() {
           </h2>
         </Reveal>
       </div>
-      <div className="relative">
+      <div className="relative w-full overflow-hidden">
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
-        <div className="flex gap-12 animate-marquee-mobile md:animate-marquee whitespace-nowrap">
+        
+        {/* Ajuste: flex-nowrap garante que nada quebre linha */}
+        <div className="flex w-max animate-marquee-mobile md:animate-marquee flex-nowrap">
           {loop.map((b, i) => (
             <div
               key={i}
               className={`shrink-0 flex items-center justify-center px-8 py-6 font-display text-3xl sm:text-4xl font-black uppercase tracking-wider transition ${
                 b === "RAM"
-                  ? "text-primary lime-glow rounded-md border border-primary/30 bg-primary/5"
-                  : "text-muted-foreground/60 hover:text-foreground"
+                  ? "text-primary lime-glow rounded-md border border-primary/30 bg-primary/5 mx-4"
+                  : "text-muted-foreground/60 hover:text-foreground mx-4"
               }`}
             >
               {b}
