@@ -39,7 +39,7 @@
   --color-surface-elevated: var(--surface-elevated);
 
   --animate-marquee: marquee 40s linear infinite;
-  --animate-marquee-mobile: marquee 10s linear infinite;
+  --animate-marquee-mobile: marquee 15s linear infinite;
   --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
   --animate-fade-up: fade-up 0.8s ease-out forwards;
 
