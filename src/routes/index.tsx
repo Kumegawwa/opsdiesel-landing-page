@@ -374,7 +374,7 @@ function Depoimentos() {
   );
 }
 
-/* ---------------- LOCALIZAÇÃO (Google Maps Fix) ---------------- */
+/* ---------------- LOCALIZAÇÃO ---------------- */
 function Localizacao() {
   const endereco = "Rua Alexandre Marcoski, 308 - São Braz, Curitiba - PR, 82015-570";
   return (
@@ -501,17 +501,15 @@ function Field({ name, label, required, placeholder }: { name: string; label: st
   );
 }
 
-/* ---------------- FOOTER (Com Assinatura) ---------------- */
+/* ---------------- FOOTER (Com Assinatura Perfeitamente Centralizada) ---------------- */
 function Footer() {
   return (
     <footer className="relative border-t border-border bg-surface/60">
       <div className="mx-auto max-w-7xl px-6 py-16 grid lg:grid-cols-4 gap-10">
         <div className="lg:col-span-2">
-          
           <div className="flex items-center gap-2">
             <img src={logo} alt="Logo Ops Diesel" className="h-10 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition duration-300" />
           </div>
-
           <p className="mt-4 text-sm text-muted-foreground max-w-md">
             Mecânica diesel premium e especialistas Dodge RAM em Curitiba/PR.
             Engenharia, precisão e performance há mais de 14 anos.
@@ -540,13 +538,20 @@ function Footer() {
           </ul>
         </div>
       </div>
+      
+      {/* BARRA INFERIOR - 3 COLUNAS */}
       <div className="border-t border-border">
-        <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
+        <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0 text-xs text-muted-foreground">
           
-          <div className="flex flex-col gap-1">
-            <div>© {new Date().getFullYear()} Ops Diesel Acessórios Automotivos Ltda · CNPJ 46.859.630/0001-17</div>
-            {/* Assinatura do Desenvolvedor */}
-            <div className="text-[11px] font-sans tracking-wider text-muted-foreground flex items-center gap-1.5 mt-1 select-none">
+          {/* 1. Direitos Autorais (Esquerda no PC, Baixo no Mobile) */}
+          <div className="flex-1 text-center sm:text-left order-2 sm:order-1 w-full sm:w-auto">
+            © {new Date().getFullYear()} Ops Diesel Acessórios Automotivos Ltda<br className="sm:hidden" />
+            <span className="hidden sm:inline"> · </span>CNPJ 46.859.630/0001-17
+          </div>
+
+          {/* 2. Assinatura Exatamente no Centro (Centro no PC, Topo no Mobile) */}
+          <div className="flex-1 flex justify-center order-1 sm:order-2 w-full sm:w-auto mb-2 sm:mb-0">
+            <div className="text-[11px] font-sans tracking-wider text-muted-foreground flex items-center justify-center gap-1 select-none">
               <span>Designed by</span>
               <a 
                 href="https://www.linkedin.com/in/lucas-kumegawa/" 
@@ -554,17 +559,19 @@ function Footer() {
                 rel="noopener noreferrer" 
                 className="group inline-flex items-center text-muted-foreground transition-all duration-300 hover:text-foreground"
               >
-                <span className="font-oleo text-[16px] text-primary tracking-normal normal-case ml-1 transition-all duration-300 group-hover:scale-105 block origin-left">
+                <span className="font-oleo text-[16px] text-primary tracking-normal normal-case transition-all duration-300 group-hover:scale-105 block origin-center">
                   Kumegawa
                 </span>
               </a>
             </div> 
           </div>
 
-          <div className="flex gap-5 mt-4 sm:mt-0">
+          {/* 3. Links (Direita no PC, Fundo no Mobile) */}
+          <div className="flex-1 flex justify-center sm:justify-end gap-5 order-3 sm:order-3 w-full sm:w-auto mt-2 sm:mt-0">
             <a href="#" className="hover:text-primary">Política de Privacidade</a>
             <a href="#" className="hover:text-primary">LGPD</a>
           </div>
+
         </div>
       </div>
     </footer>
